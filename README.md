@@ -111,9 +111,15 @@ terraform plan -refresh=false -input=false
 **Dev validation output:**
 
 ```
-Success! The configuration is valid.
+<img width="812" height="411" alt="image" src="https://github.com/user-attachments/assets/24fe1cca-ee72-4e28-9cc1-33b4e8911e6e" />
 
-Plan: 32 to add, 0 to change, 0 to destroy.
+<img width="676" height="145" alt="image" src="https://github.com/user-attachments/assets/71919dc6-8d1f-416d-b748-df768e807bf7" />
+
+<img width="1298" height="565" alt="image" src="https://github.com/user-attachments/assets/00c0693b-5299-488f-a932-67e4f27e2dd2" />
+
+
+<img width="1398" height="257" alt="image" src="https://github.com/user-attachments/assets/9279f624-be60-4d86-b308-7d20b6e4fa44" />
+
 ```
 
 **Prod validation output:**
