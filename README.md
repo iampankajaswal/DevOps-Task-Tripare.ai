@@ -322,15 +322,8 @@ This creates a timestamped SQL dump in the `backups/` directory.
 
 Output:
 
-```
-Starting database backup...
-Database: hotel_bookings
-Container: hotel_bookings_db
-Backup file: /path/to/backups/backup_20261113_201855.sql
-Backup completed successfully.
-File: /path/to/backups/backup_20261113_201855.sql
-Size: 44K
-```
+<img width="817" height="244" alt="image" src="https://github.com/user-attachments/assets/3257a5b3-dafe-4f97-b9c9-793c775906e6" />
+
 
 ### Restore from Backup
 
@@ -353,27 +346,8 @@ You can also restore a specific backup:
 
 Output:
 
-```
-Starting database restore...
-Backup file: backups/backup_20261113_201855.sql
-Database: hotel_bookings
-Container: hotel_bookings_db
+<img width="725" height="1002" alt="image" src="https://github.com/user-attachments/assets/ddd232cf-022d-4512-8845-0dad60271ed9" />
 
-WARNING: This will drop and recreate the database.
-Press Ctrl+C within 5 seconds to cancel...
-Dropping existing database...
-Restoring from backup...
-...
-Restore completed. Verifying...
-
-=== Row counts ===
-   table_name   | row_count
-----------------+-----------
- hotel_bookings |       120
- booking_events |       139
-
-Restore verified successfully.
-```
 
 ### How to Verify the Restore Worked
 
@@ -388,11 +362,22 @@ UNION ALL
 SELECT 'booking_events', COUNT(*) FROM booking_events;"
 ```
 
+Output
+
+<img width="1328" height="263" alt="image" src="https://github.com/user-attachments/assets/70710309-80bc-44f2-85c2-aa97950a6fc5" />
+
+
+
 2. **Indexes should exist:**
 
 ```bash
 docker exec hotel_bookings_db psql -U dbadmin -d hotel_bookings -c "\di"
 ```
+
+Output
+
+<img width="1263" height="261" alt="image" src="https://github.com/user-attachments/assets/067a41ee-2398-4b34-8f39-de923088acf0" />
+
 
 3. **Run the target query to confirm data is intact:**
 
@@ -405,7 +390,11 @@ WHERE city = 'delhi'
 GROUP BY org_id, status;"
 ```
 
-If all three checks return results, the restore was successful.
+
+Output
+
+<img width="1187" height="422" alt="image" src="https://github.com/user-attachments/assets/84d126dc-a0f6-43b7-8c65-620e45a9057b" />
+
 
 ---
 
@@ -413,7 +402,7 @@ If all three checks return results, the restore was successful.
 
 ```bash
 # 1. Clone the repo
-git clone <repo-url>
+git clone https://github.com/iampankajaswal/DevOps-Task-Tripare.ai.git
 cd devops-assessment
 
 # 2. Start the database
