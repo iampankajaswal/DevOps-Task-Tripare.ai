@@ -1,4 +1,4 @@
-README.md# Assessment: Terraform with Database Reliability
+Assessment: Terraform with Database Reliability
 
 This project covers AWS infrastructure design using Terraform and practical database backup, restore, and query optimization with PostgreSQL.
 
