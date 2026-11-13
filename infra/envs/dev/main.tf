@@ -11,7 +11,7 @@ terraform {
   backend "s3" {
     bucket         = "terraform-state-dev-hotel-bookings"
     key            = "dev/terraform.tfstate"
-    region         = "ap-south-1"
+    region         = "ap-south-2"
     dynamodb_table = "terraform-lock-dev"
     encrypt        = true
   }
