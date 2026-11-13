@@ -173,6 +173,9 @@ PR link - https://github.com/iampankajaswal/DevOps-Task-Tripare.ai/pull/3
 docker compose up -d
 ```
 
+<img width="1141" height="133" alt="image" src="https://github.com/user-attachments/assets/7e547fb8-b44e-4d3d-b503-401df8c052a2" />
+
+
 This starts a PostgreSQL 15 container and automatically runs:
 
 1. `db/migrations/001_create_tables.sql` -- creates the `hotel_bookings` and `booking_events` tables
@@ -185,40 +188,23 @@ This starts a PostgreSQL 15 container and automatically runs:
 docker exec hotel_bookings_db psql -U dbadmin -d hotel_bookings -c "\dt"
 ```
 
-Expected output:
+output:
 
-```
- Schema |      Name      | Type  |  Owner
---------+----------------+-------+---------
- public | booking_events | table | dbadmin
- public | hotel_bookings | table | dbadmin
-```
+<img width="1075" height="216" alt="image" src="https://github.com/user-attachments/assets/a95c1db4-eaf6-46b0-92bf-68eaae035286" />
+
 
 ### Schema
 
 **hotel_bookings:**
 
-| Column         | Type           | Notes                  |
-|----------------|----------------|------------------------|
-| id             | UUID           | Primary key, auto-generated |
-| org_id         | UUID           | Organization identifier |
-| hotel_id       | VARCHAR(100)   | Hotel identifier        |
-| city           | VARCHAR(100)   | City name               |
-| checkin_date   | DATE           | Check-in date           |
-| checkout_date  | DATE           | Check-out date          |
-| amount         | NUMERIC(12,2)  | Booking amount          |
-| status         | VARCHAR(50)    | Booking status          |
-| created_at     | TIMESTAMP      | Record creation time    |
+<img width="1280" height="491" alt="image" src="https://github.com/user-attachments/assets/b464a0ee-59d4-46dc-b057-eb816cbd7a28" />
+
+
 
 **booking_events:**
 
-| Column      | Type           | Notes                         |
-|-------------|----------------|-------------------------------|
-| id          | BIGSERIAL      | Primary key, auto-increment   |
-| booking_id  | UUID           | Foreign key to hotel_bookings |
-| event_type  | VARCHAR(100)   | Type of event                 |
-| payload     | JSONB          | Event details as JSON         |
-| created_at  | TIMESTAMP      | Event creation time           |
+<img width="1254" height="415" alt="image" src="https://github.com/user-attachments/assets/5463e751-72a6-41cf-a934-7389346833d2" />
+
 
 ---
 
@@ -243,14 +229,9 @@ UNION ALL
 SELECT 'booking_events', COUNT(*) FROM booking_events;"
 ```
 
-Expected output:
+output:
 
-```
-   table_name   | row_count
-----------------+-----------
- hotel_bookings |       120
- booking_events |       139
-```
+<img width="1138" height="257" alt="image" src="https://github.com/user-attachments/assets/6747bb83-bb6d-484c-8b11-e184a0dceeb9" />
 
 Check data distribution:
 
@@ -264,6 +245,18 @@ docker exec hotel_bookings_db psql -U dbadmin -d hotel_bookings -c \
   "SELECT status, COUNT(*) FROM hotel_bookings GROUP BY status ORDER BY COUNT(*) DESC;"
 ```
 
+# Output by city
+
+<img width="1848" height="319" alt="image" src="https://github.com/user-attachments/assets/5de07e04-29e1-4fd9-8b45-b412eb1b2aef" />
+
+
+# Output by status
+
+<img width="1840" height="267" alt="image" src="https://github.com/user-attachments/assets/3b934f6a-791d-4326-b54b-882611ec75e8" />
+
+
+
+
 ### Query Optimization
 
 The target query to optimize:
@@ -275,6 +268,11 @@ WHERE city = 'delhi'
   AND created_at >= NOW() - INTERVAL '30 days'
 GROUP BY org_id, status;
 ```
+
+<img width="1464" height="820" alt="image" src="https://github.com/user-attachments/assets/44ce2c98-aa10-4ad5-9f37-2a7577c283cb" />
+
+
+
 
 **Index created:**
 
@@ -302,6 +300,9 @@ WHERE city = 'delhi'
   AND created_at >= NOW() - INTERVAL '30 days'
 GROUP BY org_id, status;"
 ```
+
+<img width="1411" height="590" alt="image" src="https://github.com/user-attachments/assets/72c13946-d52c-4caf-a2af-24ef2a8f23eb" />
+
 
 Output shows `Bitmap Index Scan on idx_hotel_bookings_city_created_at`, confirming the index is used.
 
