@@ -110,7 +110,6 @@ terraform plan -refresh=false -input=false
 
 **Dev validation output:**
 
-```
 <img width="812" height="411" alt="image" src="https://github.com/user-attachments/assets/24fe1cca-ee72-4e28-9cc1-33b4e8911e6e" />
 
 <img width="676" height="145" alt="image" src="https://github.com/user-attachments/assets/71919dc6-8d1f-416d-b748-df768e807bf7" />
@@ -120,15 +119,22 @@ terraform plan -refresh=false -input=false
 
 <img width="1398" height="257" alt="image" src="https://github.com/user-attachments/assets/9279f624-be60-4d86-b308-7d20b6e4fa44" />
 
-```
+
+
 
 **Prod validation output:**
 
-```
-Success! The configuration is valid.
 
-Plan: 32 to add, 0 to change, 0 to destroy.
-```
+<img width="957" height="380" alt="image" src="https://github.com/user-attachments/assets/e4dab2fc-b0f8-4f7d-b8bf-08639c5d4419" />
+
+<img width="718" height="166" alt="image" src="https://github.com/user-attachments/assets/44ae924a-29fa-4c1b-bb5d-21908d4cf3fe" />
+
+<img width="1520" height="559" alt="image" src="https://github.com/user-attachments/assets/59ed83ee-8cf4-4b90-81a8-f61339905939" />
+
+<img width="1611" height="722" alt="image" src="https://github.com/user-attachments/assets/792560a1-91ac-4d93-bbf5-53b0dd12102a" />
+
+
+
 
 ---
 
