@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: hotel_bookings_db
+    environment:
+      POSTGRES_DB: hotel_bookings
+      POSTGRES_USER: dbadmin
+      POSTGRES_PASSWORD: localdev123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/migrations/001_create_tables.sql:/docker-entrypoint-initdb.d/01_create_tables.sql
+      - ./db/migrations/002_create_indexes.sql:/docker-entrypoint-initdb.d/02_create_indexes.sql
+      - ./db/seeds/001_seed_data.sql:/docker-entrypoint-initdb.d/03_seed_data.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dbadmin -d hotel_bookings"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:

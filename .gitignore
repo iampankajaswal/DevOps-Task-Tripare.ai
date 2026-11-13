@@ -1,0 +1,8 @@
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfstate.lock.info
+.terraform.lock.hcl
+backend_override.tf
+backups/*.sql
