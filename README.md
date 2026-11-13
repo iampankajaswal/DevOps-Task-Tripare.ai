@@ -151,6 +151,20 @@ The plan output is posted as a comment on the pull request so reviewers can see 
 
 ---
 
+## Github Actions Workflow Status and PR
+
+PR link - https://github.com/iampankajaswal/DevOps-Task-Tripare.ai/pull/3
+
+<img width="926" height="869" alt="image" src="https://github.com/user-attachments/assets/958507e7-7a33-4920-a9dc-dfa57c8b58aa" />
+
+
+<img width="870" height="262" alt="image" src="https://github.com/user-attachments/assets/e8284f69-e773-4b76-b4cb-398ff46b2667" />
+
+
+<img width="1142" height="265" alt="image" src="https://github.com/user-attachments/assets/3b30d2bd-fa63-4e2b-98b9-c14b42101903" />
+
+
+
 ## Part 4: Local Database Setup
 
 ### Start the Database
