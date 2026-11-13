@@ -54,3 +54,4 @@ docker exec "$CONTAINER_NAME" psql -U "$DB_USER" -d "$DB_NAME" -c "
 "
 
 echo "Restore verified successfully."
+
