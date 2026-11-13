@@ -6,3 +6,4 @@
 .terraform.lock.hcl
 backend_override.tf
 backups/*.sql
+
